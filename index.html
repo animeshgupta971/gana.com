@@ -25,14 +25,15 @@
          padding: 2rem;
          }
          .container {
-         width: 90%;
-         margin: auto;
-         height: 90vh;
-         display: grid;
-         padding-block: 2rem;
-         box-shadow: 0 1.2rem 3rem 0.5rem rgb(0,0,0,.2);
-         border-radius: 2rem;
-         }
+    width: 90%;
+    margin: auto;
+    height: 90vh;
+    display: grid;
+    padding-block: 2rem;
+    box-shadow: 0 1.2rem 3rem 0.5rem rgb(0,0,0,.2);
+    border-radius: 2rem;
+    max-width: 360px;
+}
          .thumbnail img {
          border-radius: 100%;
          width: 15rem;
@@ -121,17 +122,17 @@
            {
              name:"song-1",
              title:"Ye Raate Ye Mosam",
-             artist:"Sonali Gupta"
+             artist:"Artist"
            },
            {
              name:"song-2",
              title:"Lag ja gale",
-             artist:"Sonali Gupta"
+             artist:"Artist"
            },
            {
              name:"song-3",
              title:"Chandan Sa Badan",
-             artist:"Sonali Gupta"
+             artist:"Artist"
            }
          ]
          let isPlaying = false;
@@ -159,6 +160,7 @@
          img.src = `images/${songs.name}.jpg`;
          }
          let songIndex = 0;
+         loadSong(songs[songIndex]);
          const nextSong=()=>{
          songIndex = (songIndex+1) % songs.length;
          loadSong(songs[songIndex]);
@@ -174,7 +176,24 @@
          progress.onchange = ()=>{
          music.play();
          }
-               
+
+
+         music.addEventListener('loadedmetadata', function() {
+            // Set the max value of the range bar to the music duration
+            progress.max = music.duration;
+         });
+
+         // Update the range bar value as the music plays
+         music.addEventListener('timeupdate', function() {
+            progress.value = music.currentTime;
+         });
+
+         // Seek to the selected position when the range bar is moved
+         progress.addEventListener('input', function() {
+            music.currentTime = progress.value;
+             play.classList.replace("fa-circle-play", "fa-circle-pause");
+
+         });     
       </script> 
    </body>
 </html>

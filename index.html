@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <style>
+         *{
+         padding: 0;
+         margin: 0;
+         box-sizing: border-box;
+         }
+         html { font-size: 62.5%; }
+         body {
+         height: 100vh;
+         margin: auto;
+         display: grid;
+         }
+         .controls-row{
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding: 2rem;
+         }
+         .container {
+         max-width: 300px;
+         margin: auto;
+         height: 500px;
+         display: grid;
+         padding-block: 2rem;
+         box-shadow: 0 1.2rem 3rem 0.5rem rgb(0,0,0,.2);
+         border-radius: 2rem;
+         }
+         .thumbnail img {
+         border-radius: 100%;
+         width: 15rem;
+         height: 15rem;
+         margin: auto;
+         display: block;
+         box-shadow: 0 1.2rem 3rem 0.5rem rgb(0,0,0,.2);
+         object-fit: cover;
+         }
+         .controls-row i {
+         font-size: 3rem;
+         }
+         .details{
+         text-align: center;
+         font-size: 2rem;
+
+         }
+         .details h5{
+         font-size: 2.5rem;
+         }
+         .animation{
+         animation: rotatePlayer 3s linear infinite;
+         }
+         #progress{
+            -webkit-appearance: none;
+            width: 100%;
+            height: 7px;
+            border-radius: 4px;
+            background: coral;
+         }
+         #progress::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            height: 1.5rem;
+            width: 1.5rem;
+            background-color: rgb(255, 68, 0);
+            border-radius: 100%;
+            border: 10px solid #fff;
+            box-shadow: 0 5px 5px rgba(255,26,26, 0.22) ;
+         }
+         .progress-container{
+            padding: 2rem;
+         }
+         @keyframes rotatePlayer {
+         from{
+         transform: rotate(0deg);
+         }
+         to{
+         transform: rotate(360deg);
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="details">
+            <h5 class="title" id="title">Title-1</h5>progress
+            <h6 class="artist" id="artist">Artist-1</h6>
+         </div>
+         <div class="thumbnail">
+            <img src="/images/song-1.jpg">
+        </div>
+         <audio controls id="music" src="/files/song-1.mp3"></audio>
+         <div class="progress-container">
+         <input type="range" name="progress" id="progress" value="0">
+        </div>
+         <div class="controls-row">
+            <i class="fa-solid fa-backward-step" id="prev"></i>
+            <i class="fa-regular fa-circle-play" id="play"></i>
+            <i class="fa-solid fa-forward-step" id="next"></i>
+         </div>
+      <!-- </div>
+      <script>
+         const music = document.querySelector("#music"); 
+         const play = document.querySelector("#play");
+         const img = document.querySelector("img");
+         const prev = document.querySelector("#prev");
+         const next = document.querySelector("#next");
+         const title = document.querySelector("#title");
+         const artist = document.querySelector("#artist");
+         const progress = document.querySelector("#progress");
+         const songs=[
+            {
+                name:"song-1",
+                title:"Song 1",
+                artist:"Artist 1"
+            },
+            {
+                name:"song-2",
+                title:"Song 2",
+                artist:"Artist 2"
+            },
+            {
+                name:"song-3",
+                title:"Song 3",
+                artist:"Artist 3"
+            }
+         ]
+         let isPlaying = false;
+
+         const playMusic =()=>{
+             isPlaying = true
+             music.play();
+             play.classList.replace("fa-circle-play", "fa-circle-pause");
+             img.classList.add("animation");
+         }
+         const pauseMusic =()=>{
+             isPlaying = false
+             music.pause();
+             play.classList.replace("fa-circle-pause", "fa-circle-play");
+             img.classList.remove("animation");
+         }
+         play.addEventListener('click',()=>{
+             isPlaying?pauseMusic():playMusic();
+         })
+        
+         const loadSong = (songs)=>{
+            title.textContent = songs.title
+            artist.textContent = `${songs.artist}`
+            music.src = `files/${songs.name}.mp3`;
+            img.src = `images/${songs.name}.jpg`;
+        }
+        songIndex = 0;
+        const nextSong=()=>{
+            songIndex = (songIndex+1) % songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+        }
+        const prevSong=()=>{
+            songIndex = (songIndex+1) % songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+        }
+        prev.addEventListener('click',prevSong)
+        next.addEventListener('click',nextSong)
+
+        if(music.play()){
+            setInterval(()=>{
+            progress.value=music.currentTime
+        },500);
+        }
+        progress.onchange = ()=>{
+            music.play();
+            music.currentTime = progress.value
+        }
+      </script> -->
+      <script>
+        const music = document.querySelector("#music"); 
+const play = document.querySelector("#play");
+const img = document.querySelector("img");
+const prev = document.querySelector("#prev");
+const next = document.querySelector("#next");
+const title = document.querySelector("#title");
+const artist = document.querySelector("#artist");
+const progress = document.querySelector("#progress");
+const songs=[
+  {
+    name:"song-1",
+    title:"Song 1",
+    artist:"Artist 1"
+  },
+  {
+    name:"song-2",
+    title:"Song 2",
+    artist:"Artist 2"
+  },
+  {
+    name:"song-3",
+    title:"Song 3",
+    artist:"Artist 3"
+  }
+]
+let isPlaying = false;
+
+const playMusic =()=>{
+  isPlaying = true
+  music.play();
+  play.classList.replace("fa-circle-play", "fa-circle-pause");
+  img.classList.add("animation");
+}
+const pauseMusic =()=>{
+  isPlaying = false
+  music.pause();
+  play.classList.replace("fa-circle-pause", "fa-circle-play");
+  img.classList.remove("animation");
+}
+play.addEventListener('click',()=>{
+  isPlaying?pauseMusic():playMusic();
+})
+
+const loadSong = (songs)=>{
+  title.textContent = songs.title
+  artist.textContent = `${songs.artist}`
+  music.src = `files/${songs.name}.mp3`
+  img.src = `images/${songs.name}.jpg`
+}
+
+let songIndex = 0;
+loadSong(songs[songIndex]);
+
+const prevSong = () => {
+  songIndex--;
+  if (songIndex < 0) {
+    songIndex = songs.length - 1;
+  }
+  loadSong(songs[songIndex]);
+  playMusic();
+}
+
+const nextSong = () => {
+  songIndex++;
+  if (songIndex > songs.length - 1) {
+    songIndex = 0;
+  }
+  loadSong(songs[songIndex]);
+  playMusic();
+}
+
+prev.addEventListener('click', prevSong);
+next.addEventListener('click', nextSong);
+
+music.addEventListener('timeupdate', (event) => {
+  const currentTime = event.target.currentTime;
+  const duration = event.target.duration;
+  progress.value = (currentTime / duration) * 100;
+});
+
+progress.addEventListener('input', (event) => {
+  const value = event.target.value;
+  const duration = music.duration;
+  music.currentTime = (value / 100) * duration;
+});
+
+music.addEventListener('ended', nextSong);
+
+      </script>
+   </body>
+</html>

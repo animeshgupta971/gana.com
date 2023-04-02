@@ -96,15 +96,15 @@
         </div>
          <audio controls id="music" src="/files/song-1.mp3"></audio>
          <div class="progress-container">
-         <input type="range" name="progress" id="progress" value="0">
+         <input type="range" name="progress" id="progress" value="0" min="0" max="100">
         </div>
          <div class="controls-row">
             <i class="fa-solid fa-backward-step" id="prev"></i>
             <i class="fa-regular fa-circle-play" id="play"></i>
             <i class="fa-solid fa-forward-step" id="next"></i>
          </div>
-      <!-- </div>
-      <script>
+      </div>
+      <!-- <script>
          const music = document.querySelector("#music"); 
          const play = document.querySelector("#play");
          const img = document.querySelector("img");
@@ -177,9 +177,9 @@
             music.play();
             music.currentTime = progress.value
         }
-      </script> -->
-      <script>
-        const music = document.querySelector("#music"); 
+      </script>  -->
+<script>
+const music = document.querySelector("#music"); 
 const play = document.querySelector("#play");
 const img = document.querySelector("img");
 const prev = document.querySelector("#prev");
@@ -190,18 +190,18 @@ const progress = document.querySelector("#progress");
 const songs=[
   {
     name:"song-1",
-    title:"Song 1",
-    artist:"Artist 1"
+    title:"Ye Raate Ye Mosam",
+    artist:"Sonali Gupta"
   },
   {
     name:"song-2",
-    title:"Song 2",
-    artist:"Artist 2"
+    title:"Lag ja gale",
+    artist:"Sonali Gupta"
   },
   {
     name:"song-3",
-    title:"Song 3",
-    artist:"Artist 3"
+    title:"Chandan Sa Badan",
+    artist:"Sonali Gupta"
   }
 ]
 let isPlaying = false;

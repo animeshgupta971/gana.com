@@ -71,11 +71,11 @@
          }
          #progress::-webkit-slider-thumb{
          -webkit-appearance: none;
-         height: 1.5rem;
-         width: 1.5rem;
+         height: 2rem;
+         width: 2rem;
          background-color: rgb(255, 68, 0);
          border-radius: 100%;
-         border: 10px solid #fff;
+         border: 5px solid #fff;
          box-shadow: 0 5px 5px rgba(255,26,26, 0.22) ;
          }
          .progress-container{
@@ -197,6 +197,7 @@
              play.classList.replace("fa-circle-play", "fa-circle-pause");
 
          });     
+         music.addEventListener("ended",nextSong);
       </script> 
    </body>
 </html>

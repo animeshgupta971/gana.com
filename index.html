@@ -20,6 +20,7 @@
          margin: auto;
          display: grid;
          max-height: 100vh;
+         background: antiquewhite;
          }
          .controls-row{
          display: flex;
@@ -33,7 +34,7 @@
     height: 80vh;
     display: grid;
     padding-block: 2rem;
-    box-shadow: 0 1.2rem 3rem 0.5rem rgb(0,0,0,.2);
+    /* box-shadow: 0 1.2rem 3rem 0.5rem rgb(0,0,0,.2); */
     border-radius: 2rem;
     max-width: 360px;
 }
@@ -129,7 +130,7 @@
          const artist = document.querySelector("#artist");
          const progress = document.querySelector("#progress");
          const songs=[
-           {
+         {
              name:"song-1",
              title:"Ye Raate Ye Mosam",
              artist:"Artist"
@@ -143,7 +144,33 @@
              name:"song-3",
              title:"Chandan Sa Badan",
              artist:"Artist"
+           },
+           {
+             name:"song-4",
+             title:"Unknown",
+             artist:"Artist"
+           },
+           {
+             name:"song-5",
+             title:"Unknown",
+             artist:"Artist"
+           },
+           {
+             name:"song-6",
+             title:"Unknown",
+             artist:"Artist"
+           },
+           {
+             name:"song-7",
+             title:"Unknown",
+             artist:"Artist"
+           },
+           {
+             name:"song-8",
+             title:"Unknown",
+             artist:"Artist"
            }
+
          ]
          let isPlaying = false;
          
